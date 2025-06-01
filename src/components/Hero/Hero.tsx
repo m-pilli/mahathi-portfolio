@@ -2,13 +2,14 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
 import profilePhoto from '../../images/profile.jpg';
+import CodeBackground from '../CodeBackground/CodeBackground';
 import './Hero.scss';
 
 const Hero: React.FC = () => {
   return (
     <section className="hero">
+      <CodeBackground />
       <div className="hero-content">
         <div className="hero-text">
           <div>

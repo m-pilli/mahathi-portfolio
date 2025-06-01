@@ -13,8 +13,16 @@ const codeSnippets = [
   'npm start'
 ];
 
+interface CodeElement {
+  id: number;
+  text: string;
+  x: number;
+  y: number;
+  side: 'left' | 'right';
+}
+
 const CodeBackground: React.FC = () => {
-  const [elements, setElements] = useState<Array<{ id: number; text: string; x: number; y: number; side: 'left' | 'right' }>>([]);
+  const [elements, setElements] = useState<CodeElement[]>([]);
 
   useEffect(() => {
     const createElement = () => {

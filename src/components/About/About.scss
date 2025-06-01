@@ -27,23 +27,24 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 50px;
     align-items: start;
-
-    @media screen and (max-width: $breakpoint-md) {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
   }
 
   .about-text {
     p {
       color: var(--text-secondary);
       font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
       will-change: transform, opacity;
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+
+      &:hover {
+        color: var(--text-primary);
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -141,60 +142,136 @@
   }
 
   .education-section {
+    margin-top: 2rem;
+
     h3 {
       font-size: 2rem;
       color: var(--text-primary);
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       will-change: transform, opacity;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.5rem;
+        width: 50%;
+        height: 2px;
+        background: var(--text-highlight);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
     }
 
     .education-item {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
       border-bottom: 1px solid var(--border-color);
       will-change: transform, opacity;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      position: relative;
+      padding-left: 1rem;
 
-      &:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: var(--text-highlight);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+        opacity: 0.5;
       }
 
       &:hover {
         transform: translateX(10px);
+        
+        &::before {
+          transform: scaleY(1);
+        }
       }
 
       h4 {
         font-size: 1.3rem;
         color: var(--text-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--text-highlight);
+        }
       }
 
       .degree {
         color: var(--text-primary);
         font-size: 1.1rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--text-highlight);
+        }
       }
 
       .details {
         color: var(--text-secondary);
         font-family: $font-mono;
         font-size: 0.9rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
       }
 
       .location {
         color: var(--text-highlight);
         font-family: $font-mono;
         font-size: 0.9rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 1;
+        }
       }
 
       .coursework-text {
         color: var(--text-secondary);
         font-size: 0.9rem;
-        line-height: 1.5;
+        line-height: 1.6;
+        padding-left: 1rem;
+        border-left: 2px solid var(--border-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-left-color: var(--text-highlight);
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding: 40px 0;
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-text {
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
       }
     }
   }

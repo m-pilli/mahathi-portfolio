@@ -20,11 +20,19 @@ const About: React.FC = () => {
   });
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      filter: 'blur(10px)'
+    },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6 }
+      filter: 'blur(0px)',
+      transition: { 
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99]
+      }
     }
   };
 
@@ -33,14 +41,20 @@ const About: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.3,
+        delayChildren: 0.2
       }
     }
   };
 
   return (
-    <section id="about" className="about-section">
-      <div className="about-content">
+    <div className="about-section">
+      <motion.div 
+        className="about-content"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <motion.h2 
           ref={titleRef}
           className="section-title"
@@ -52,42 +66,44 @@ const About: React.FC = () => {
         </motion.h2>
 
         <div className="about-grid">
-          {/* Introduction Part */}
           <motion.div 
             ref={introRef}
             className="about-text"
+            variants={staggerChildren}
             initial="hidden"
             animate={introInView ? "visible" : "hidden"}
-            variants={staggerChildren}
           >
             <motion.p variants={fadeInUp}>
-              Hello! I'm Mahathi, a passionate Computer Science graduate student at Texas State University. 
-              My journey in technology is driven by a deep fascination with solving complex problems and creating 
-              innovative solutions that make a difference.
+              Currently pursuing a Master's in Computer Science after completing a strong undergraduate foundation as a CS major, 
+              I thrive at the intersection of cloud computing, machine learning, and modern software engineering. My experience 
+              covers backend development, scalable web applications, and cloud-native solutions using technologies like Java, 
+              Python, C++, and JavaScript.
             </motion.p>
             <motion.p variants={fadeInUp}>
-              With a strong foundation in computer science fundamentals and hands-on experience in modern 
-              technologies, I specialize in developing scalable applications, working with cloud platforms, 
-              and implementing data-driven solutions. I'm particularly interested in the intersection of 
-              cloud computing, machine learning, and software engineering.
+              From developing academic planning tools to implementing data-driven systems, I enjoy turning ideas into robust, 
+              high-impact solutions. Skilled in building RESTful APIs, integrating with platforms like AWS and Google Cloud, 
+              and managing databases such as PostgreSQL and MongoDB, I'm driven by a passion for problem-solving and continuous learning.
             </motion.p>
             <motion.p variants={fadeInUp}>
-              When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, 
-              and staying up-to-date with the latest developments in the tech world.
+              I am always exploring new technologies, contributing to innovative teams, and seeking out opportunities to make 
+              a difference through code.
             </motion.p>
           </motion.div>
 
-          {/* Education Part */}
           <motion.div 
             ref={eduRef}
             className="education-section"
+            variants={staggerChildren}
             initial="hidden"
             animate={eduInView ? "visible" : "hidden"}
-            variants={staggerChildren}
           >
             <motion.h3 variants={fadeInUp}>Education</motion.h3>
             
-            <motion.div className="education-item" variants={fadeInUp}>
+            <motion.div 
+              className="education-item" 
+              variants={fadeInUp}
+              whileHover={{ x: 10, transition: { duration: 0.2 } }}
+            >
               <h4>Texas State University</h4>
               <p className="degree">Master of Science in Computer Science</p>
               <p className="details">GPA: 3.75/4.00 | Jan 2024 - Present</p>
@@ -95,7 +111,11 @@ const About: React.FC = () => {
               <p className="coursework-text">Key Coursework: Algorithm Design, Network Systems, Database Theory, Data Mining, Software Engineering</p>
             </motion.div>
 
-            <motion.div className="education-item" variants={fadeInUp}>
+            <motion.div 
+              className="education-item" 
+              variants={fadeInUp}
+              whileHover={{ x: 10, transition: { duration: 0.2 } }}
+            >
               <h4>Jawaharlal Nehru Technological University</h4>
               <p className="degree">Bachelor of Technology in Computer Science</p>
               <p className="details">GPA: 3.5/4.00 | Aug 2019 – Aug 2023</p>
@@ -104,8 +124,8 @@ const About: React.FC = () => {
             </motion.div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </div>
   );
 };
 
