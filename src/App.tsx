@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from './utils/reactImports';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar/Navbar';

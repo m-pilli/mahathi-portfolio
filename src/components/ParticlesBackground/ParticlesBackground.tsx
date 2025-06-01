@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback } from '../../utils/reactImports';
 import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
@@ -22,7 +22,6 @@ const ParticlesBackground: React.FC = () => {
             value: "transparent",
           },
         },
-        fpsLimit: 60,
         particles: {
           color: {
             value: mainColor,
@@ -35,33 +34,23 @@ const ParticlesBackground: React.FC = () => {
             width: 1,
           },
           move: {
-            direction: "none",
             enable: true,
-            outModes: {
-              default: "bounce",
-            },
-            random: false,
-            speed: 1.2,
-            straight: false,
+            speed: 1,
           },
           number: {
+            value: 40,
             density: {
               enable: true,
-              area: 600,
-            },
-            value: 40,
+              area: 800
+            }
           },
           opacity: {
             value: 0.4,
           },
-          shape: {
-            type: "circle",
-          },
           size: {
-            value: { min: 1, max: 2.5 },
+            value: { min: 1, max: 2 },
           },
         },
-        detectRetina: true,
       }}
     />
   );
