@@ -1,0 +1,98 @@
+// Base colors
+$navy: #0a192f;
+$dark-navy: #020c1b;
+$light-navy: #112240;
+$lightest-navy: #233554;
+$slate: #8892b0;
+$light-slate: #a8b2d1;
+$lightest-slate: #ccd6f6;
+$white: #e6f1ff;
+$primary-color: #64ffda;
+$accent-color: #64ffda;
+
+// Theme variables
+:root {
+  &[data-theme="dark"] {
+    --background: #{$navy};
+    --bg-main: #{$navy};
+    --bg-main-rgb: 10, 25, 47;
+    --bg-nav: #{rgba($dark-navy, 0.85)};
+    --text-primary: #{$lightest-slate};
+    --text-secondary: #{$light-slate};
+    --text-highlight: #{$primary-color};
+    --border-color: #{$lightest-navy};
+    --nav-shadow: #{rgba(2, 12, 27, 0.7)};
+    --card-bg: #{$light-navy};
+  }
+
+  &[data-theme="light"] {
+    --background: #ffffff;
+    --bg-main: #f8fafc;
+    --bg-main-rgb: 248, 250, 252;
+    --bg-nav: #{rgba(#ffffff, 0.85)};
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-highlight: #0d9488;
+    --border-color: #e2e8f0;
+    --nav-shadow: #{rgba(0, 0, 0, 0.1)};
+    --card-bg: #ffffff;
+  }
+}
+
+// Typography
+$font-family-base: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+$font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+// Spacing
+$spacing-unit: 8px;
+$container-padding: $spacing-unit * 2;
+$nav-height: 100px;
+$nav-scroll-height: 70px;
+
+// Transitions
+$transition-speed: 0.3s;
+$transition-ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Hover effect
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// Box shadow
+@mixin box-shadow {
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+// Section padding
+@mixin section-padding {
+  padding: 100px 0;
+  
+  @media screen and (max-width: $breakpoint-md) {
+    padding: 80px 0;
+  }
+} 
