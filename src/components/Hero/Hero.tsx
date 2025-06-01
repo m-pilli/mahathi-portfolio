@@ -2,6 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
+import profilePhoto from '../../images/profile.jpg';
 import './Hero.scss';
 
 const Hero: React.FC = () => {
@@ -81,7 +83,7 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="hero-image">
-          <img src="/profile.jpg" alt="Mahathi Pilli" className="profile-photo" />
+          <img src={profilePhoto} alt="Mahathi Pilli" className="profile-photo" />
         </div>
       </div>
     </section>
