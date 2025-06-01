@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Typewriter from 'typewriter-effect';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import { logNavigation } from '../../utils/analytics';
 import './Navbar.scss';
 
 const Navbar: React.FC = () => {
@@ -27,6 +28,11 @@ const Navbar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleNavClick = (section: string) => {
+    logNavigation(section);
+    setIsOpen(false);
+  };
+
   const navItems = [
     { name: 'Home', to: 'home' },
     { name: 'About', to: 'about' },
@@ -46,7 +52,12 @@ const Navbar: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="home" smooth={true} duration={500}>
+          <Link 
+            to="home" 
+            smooth={true} 
+            duration={500}
+            onClick={() => handleNavClick('home')}
+          >
             <div className="logo-content">
               <span className="name">Mahathi Pilli</span>
               <div className="role-text">
@@ -55,6 +66,7 @@ const Navbar: React.FC = () => {
                   options={{
                     strings: [
                       'Software Engineer',
+                      'Web Developer',
                       'Cloud Developer',
                       'Python Developer',
                       'ML Engineer',
@@ -81,36 +93,27 @@ const Navbar: React.FC = () => {
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
         </div>
 
-        <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          {navItems.map((item, index) => (
-            <motion.li
-              key={item.name}
-              className="nav-item"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+        <motion.ul
+          className={`nav-links ${isOpen ? 'active' : ''}`}
+          initial={false}
+          animate={isOpen ? 'open' : 'closed'}
+        >
+          {navItems.map((item) => (
+            <motion.li key={item.to}>
               <Link
                 to={item.to}
-                className="nav-link"
                 smooth={true}
                 duration={500}
-                offset={-70}
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleNavClick(item.to)}
               >
-                <span className="nav-link-text">{item.name}</span>
+                {item.name}
               </Link>
             </motion.li>
           ))}
-          <motion.li
-            className="nav-item"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: navItems.length * 0.1 }}
-          >
+          <motion.li>
             <ThemeToggle />
           </motion.li>
-        </ul>
+        </motion.ul>
       </div>
     </nav>
   );

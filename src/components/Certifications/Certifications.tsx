@@ -15,6 +15,7 @@ import {
   faCode,
   faExternalLink
 } from '@fortawesome/free-solid-svg-icons';
+import { logCertificationClick } from '../../utils/analytics';
 import './Certifications.scss';
 
 const Certifications: React.FC = () => {
@@ -85,9 +86,14 @@ const Certifications: React.FC = () => {
     transition: { duration: 0.6 }
   };
 
+  const handleCertClick = (certName: string, link: string) => {
+    logCertificationClick(certName);
+    window.open(link, '_blank', 'noopener noreferrer');
+  };
+
   return (
     <section id="certifications" className="certifications-section">
-      <div className="certifications-content">
+      <motion.div className="certifications-content">
         <motion.h2 
           className="section-title"
           initial={fadeInUp.initial}
@@ -110,15 +116,13 @@ const Certifications: React.FC = () => {
                 <FontAwesomeIcon icon={cert.icon} className="cert-icon" />
                 <h3>{cert.title}</h3>
                 {cert.credentialLink && (
-                  <a 
-                    href={cert.credentialLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={() => handleCertClick(cert.title, cert.credentialLink!)}
                     className="credential-link"
                     title="View Credential"
                   >
                     <FontAwesomeIcon icon={faExternalLink} />
-                  </a>
+                  </button>
                 )}
               </div>
               
@@ -145,7 +149,7 @@ const Certifications: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

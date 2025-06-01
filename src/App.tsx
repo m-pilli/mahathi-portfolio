@@ -1,6 +1,7 @@
 import React, { useEffect } from './utils/reactImports';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { initGA, logPageView } from './utils/analytics';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -19,6 +20,12 @@ const AppContent: React.FC = () => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.documentElement.style.backgroundColor = savedTheme === 'dark' ? '#0a192f' : '#f8fafc';
+  }, []);
+
+  // Initialize Google Analytics and track page views
+  useEffect(() => {
+    initGA();
+    logPageView();
   }, []);
 
   return (
