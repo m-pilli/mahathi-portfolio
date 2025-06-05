@@ -16,26 +16,32 @@ $accent-color: #64ffda;
     --background: #{$navy};
     --bg-main: #{$navy};
     --bg-main-rgb: 10, 25, 47;
+    --bg-secondary: #{rgba($dark-navy, 0.97)};
     --bg-nav: #{rgba($dark-navy, 0.85)};
     --text-primary: #{$lightest-slate};
     --text-secondary: #{$light-slate};
     --text-highlight: #{$primary-color};
+    --text-highlight-rgb: 100, 255, 218;
     --border-color: #{$lightest-navy};
     --nav-shadow: #{rgba(2, 12, 27, 0.7)};
     --card-bg: #{$light-navy};
+    --card-bg-rgb: 17, 34, 64;
   }
 
   &[data-theme="light"] {
     --background: #ffffff;
     --bg-main: #f8fafc;
     --bg-main-rgb: 248, 250, 252;
+    --bg-secondary: #{rgba(#f1f5f9, 0.97)};
     --bg-nav: #{rgba(#ffffff, 0.85)};
     --text-primary: #1a202c;
     --text-secondary: #4a5568;
     --text-highlight: #0d9488;
+    --text-highlight-rgb: 13, 148, 136;
     --border-color: #e2e8f0;
     --nav-shadow: #{rgba(0, 0, 0, 0.1)};
     --card-bg: #ffffff;
+    --card-bg-rgb: 255, 255, 255;
   }
 }
 
