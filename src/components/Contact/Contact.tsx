@@ -18,11 +18,7 @@ const Contact: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
-<<<<<<< HEAD
     emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "");
-=======
-    emailjs.init("13HEpBHKtxZhzMpie");
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
   }, []);
 
   const containerVariants = {
@@ -61,17 +57,10 @@ const Contact: React.FC = () => {
     try {
       if (form.current) {
         await emailjs.sendForm(
-<<<<<<< HEAD
           process.env.REACT_APP_EMAILJS_SERVICE_ID || "",
           process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "",
           form.current,
           process.env.REACT_APP_EMAILJS_PUBLIC_KEY || ""
-=======
-          'service_pgnm6kv',
-          'template_b4zw2xe',
-          form.current,
-          '13HEpBHKtxZhzMpie'
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
         );
         setSubmitStatus('success');
         setFormData({ user_name: '', user_email: '', message: '' });

@@ -37,18 +37,13 @@ const Experience: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-<<<<<<< HEAD
         staggerChildren: 0.3,
         delayChildren: 0.2
-=======
-        staggerChildren: 0.1
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
       }
     }
   };
 
   const listItemVariants = {
-<<<<<<< HEAD
     hidden: { 
       opacity: 0,
       y: 30,
@@ -63,125 +58,57 @@ const Experience: React.FC = () => {
         stiffness: 80,
         damping: 15,
         duration: 0.5
-=======
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
       }
     }
   };
 
   return (
-    <section id="experience" className="experience-section">
-      <motion.div 
+    <div className="experience-section" id="experience">
+      <motion.div
         className="experience-content"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          Professional Experience
-        </motion.h2>
-
-        <div className="experience-grid">
-          <motion.div 
-            className="experience-item"
-            variants={itemVariants}
-            whileHover={{ 
-              scale: 1.02,
-              transition: { duration: 0.3 }
-            }}
+        <h2 className="section-title">Experience</h2>
+        
+        <motion.div className="experience-item" variants={itemVariants}>
+          <div className="experience-header">
+            <h3>Graduate Research Assistant</h3>
+            <p className="company">Texas State University</p>
+            <p className="duration">Aug 2023 - Present</p>
+          </div>
+          
+          <motion.ul 
+            className="responsibilities"
+            variants={listVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <motion.div 
-              className="experience-header"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <motion.h3
-                whileHover={{ 
-                  color: "var(--text-highlight)",
-                  transition: { duration: 0.2 }
-                }}
-              >
-                Graduate Assistant
-              </motion.h3>
-              <motion.p 
-                className="company"
+            {[
+              "Built a Custom Attributes API using Python and Google Cloud Platform to streamline data flow for Navigate360, improving backend efficiency and user experience.",
+              "Created and maintained comprehensive documentation for the Custom Attributes API, facilitating seamless integration and usage by the development team.",
+              "Developed automated data analysis scripts in Python to process and analyze large datasets, reducing manual processing time by 75%.",
+              "Implemented data visualization dashboards using Python libraries to present key metrics and insights to stakeholders.",
+              "Collaborated with cross-functional teams to identify and implement process improvements, resulting in enhanced workflow efficiency.",
+              "Conducted thorough testing and debugging of API endpoints to ensure robust functionality and optimal performance.",
+              "Participated in regular code reviews and provided constructive feedback to maintain high code quality standards.",
+              "Assisted in the deployment and monitoring of cloud-based solutions on Google Cloud Platform."
+            ].map((item, index) => (
+              <motion.li 
+                key={index}
+                variants={listItemVariants}
                 whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Texas State University
-              </motion.p>
-              <p className="duration">Jan 2024 - Present</p>
-              <p className="location">San Marcos, TX</p>
-            </motion.div>
-            <motion.ul 
-              className="responsibilities"
-              variants={listVariants}
-<<<<<<< HEAD
-              initial="hidden"
-              animate="visible"
-            >
-              {[
-                "Built a Custom Attributes API using Python and Google Cloud Platform to streamline data flow for Navigate360, improving backend efficiency and user experience.",
-                "Conducted data analysis on course enrollment trends to support academic planning, uncovering student motivations and helping inform key decisions.",
-                "Developed alumni insights reports using Pandas and labor market tools, contributing to better outreach strategies and improved engagement.",
-                "Maintained and transformed academic records within Navigate360, ensuring clean, structured data for advising and course planning tools.",
-                "Redesigned website navigation with Gato CMS, improving content structure and accessibility, leading to higher engagement and easier resource discovery."
-=======
-            >
-              {[
-                "Building Custom Attributes API using Python and Google Cloud Platform (GCP) for seamless Navigate360 data integration, improving backend performance and user experience.",
-                "Analyzed intersession course enrollment using SQL and internal dashboards, finding 87% of students enrolled for degree acceleration, 5% for prerequisites, 3% retaking courses, and 5% withdrawing. Compiled insights into a summary report to support academic planning.",
-                "Extracted and analyzed alumni data using Lightcast and Pandas, contributing to a 15% increase in alumni engagement through automated reports on career trajectories and employment trends.",
-                "Managed and updated academic data within Navigate360, including course catalogs, student records, and advising information, performing backend data validation and transformation using GCP tools.",
-                "Revamped website navigation by optimizing information architecture using Gato CMS, enhancing website accessibility and user experience with HTML, CSS, resulting in a 12% increase in page views per session and enhanced findability of key resources."
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
-              ].map((responsibility, index) => (
-                <motion.li 
-                  key={index}
-                  variants={listItemVariants}
-                  whileHover={{ 
-<<<<<<< HEAD
-                    scale: 1.02,
-                    transition: { 
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 10
-                    }
-                  }}
-                  whileTap={{ 
-                    scale: 0.98,
-                    transition: { 
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 10
-                    }
-=======
-                    x: 10,
-                    transition: { duration: 0.2 }
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
-                  }}
-                >
-                  {responsibility}
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
-        </div>
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
       </motion.div>
-    </section>
+    </div>
   );
 };
 

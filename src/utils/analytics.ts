@@ -2,11 +2,7 @@ import ReactGA from 'react-ga4';
 
 // Initialize GA4 with your measurement ID
 export const initGA = () => {
-<<<<<<< HEAD
   ReactGA.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID || "");
-=======
-  ReactGA.initialize('G-8WGP4HV8XJ');
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
 };
 
 // Track page views with UTM parameters

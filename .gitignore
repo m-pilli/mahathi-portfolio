@@ -10,33 +10,20 @@
 
 # production
 /build
-<<<<<<< HEAD
 
 # misc
 .DS_Store
 .env
-=======
-/dist
-
-# misc
-.DS_Store
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-<<<<<<< HEAD
+.env*.local
 
-# logs
-=======
-.env
-
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-<<<<<<< HEAD
 # IDE specific files
 .idea
 .vscode
@@ -51,10 +38,3 @@ yarn-error.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
-=======
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
->>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
