@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.dark {
+      transform: rotate(0deg);
+    }
+
+    &.light {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    margin-left: 0;
+    padding: 15px;
+  }
+} 

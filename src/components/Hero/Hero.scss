@@ -1,0 +1,229 @@
+@import '../../styles/variables.scss';
+
+.hero {
+  min-height: 100vh;
+  background: var(--bg-main);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 100px 0;
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    @media screen and (max-width: $breakpoint-md) {
+      flex-direction: column-reverse;
+      padding: 0 25px;
+      text-align: center;
+    }
+  }
+
+  .hero-text {
+    flex: 1;
+    max-width: 600px;
+
+    .developer-tag {
+      font-family: $font-mono;
+      color: $primary-color;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+
+      &.closing-tag {
+        margin-top: 2rem;
+      }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+
+      .highlight {
+        color: var(--text-highlight);
+      }
+
+      @media screen and (max-width: $breakpoint-md) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .role-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      min-height: 2em;
+
+      .role {
+        color: var(--text-highlight);
+        font-family: $font-mono;
+
+        .Typewriter {
+          display: inline-block;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-md) {
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+    }
+
+    .description {
+      margin-bottom: 2rem;
+      
+      p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0;
+
+        .highlight {
+          color: var(--text-highlight);
+          padding: 0 2px;
+        }
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: $breakpoint-md) {
+        justify-content: center;
+      }
+
+      .contact-link, .location {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-family: $font-mono;
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+
+        svg {
+          color: var(--text-highlight);
+          font-size: 1.1rem;
+        }
+
+        &:hover {
+          color: var(--text-highlight);
+          background-color: rgba(var(--text-highlight-rgb), 0.1);
+        }
+      }
+
+      .separator {
+        color: var(--text-highlight);
+        opacity: 0.5;
+      }
+    }
+
+    .cta-buttons {
+      .primary-btn {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background-color: transparent;
+        color: var(--text-highlight);
+        border: 2px solid var(--text-highlight);
+        border-radius: 4px;
+        font-family: $font-mono;
+        font-size: 1rem;
+        text-decoration: none;
+
+        &:hover {
+          background-color: rgba(var(--text-highlight-rgb), 0.1);
+        }
+      }
+    }
+
+    .social-links {
+      display: none;
+    }
+  }
+
+  .hero-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(var(--text-highlight-rgb), 0.3);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: linear-gradient(45deg, var(--text-highlight), transparent);
+      border-radius: 50%;
+      z-index: 0;
+      animation: rotate 4s linear infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: linear-gradient(225deg, var(--text-highlight), transparent);
+      border-radius: 50%;
+      z-index: 0;
+      animation: rotate 4s linear infinite reverse;
+      opacity: 0.7;
+    }
+
+    .profile-photo {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 60%;
+      border-radius: 50%;
+      z-index: 1;
+      border: 6px solid var(--bg-main);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+      width: 250px;
+      height: 250px;
+      margin: 10px;
+      
+      .profile-photo {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

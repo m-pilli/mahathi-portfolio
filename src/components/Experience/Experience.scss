@@ -1,0 +1,180 @@
+@import '../../styles/variables.scss';
+
+.experience-section {
+  padding: 100px 0;
+  background: var(--bg-main);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(var(--text-highlight-rgb), 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .experience-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+
+    @media screen and (max-width: $breakpoint-md) {
+      padding: 0 25px;
+    }
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--text-highlight);
+      border-radius: 3px;
+    }
+  }
+
+  .experience-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .experience-item {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px var(--nav-shadow);
+    border: 1px solid rgba(var(--text-highlight-rgb), 0.1);
+    transition: all 0.3s ease;
+    will-change: transform;
+
+    .experience-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(var(--text-highlight-rgb), 0.1);
+
+      h3 {
+        color: var(--text-primary);
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        font-family: $font-mono;
+        cursor: pointer;
+      }
+
+      .company {
+        color: var(--text-highlight);
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .duration, .location {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+        font-family: $font-mono;
+      }
+    }
+
+    .responsibilities {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+
+      li {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        padding: 1.5rem;
+        border-radius: 15px;
+        background: var(--card-bg);
+        box-shadow: 0 4px 20px rgba(var(--text-highlight-rgb), 0.08);
+        border: 2px solid rgba(var(--text-highlight-rgb), 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: var(--text-highlight);
+          transform: scaleY(0);
+          transform-origin: bottom;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          transform: translateY(-5px) scale(1.02);
+          box-shadow: 0 10px 30px rgba(var(--text-highlight-rgb), 0.15);
+          border-color: rgba(var(--text-highlight-rgb), 0.3);
+          background: var(--card-bg);
+
+          &::before {
+            transform: scaleY(1);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding: 60px 0;
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .experience-item {
+      padding: 1.5rem;
+
+      .experience-header {
+        h3 {
+          font-size: 1.2rem;
+        }
+
+        .company {
+          font-size: 1rem;
+        }
+
+        .duration, .location {
+          font-size: 0.85rem;
+        }
+      }
+
+      .responsibilities {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        li {
+          padding: 1.2rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+} 
