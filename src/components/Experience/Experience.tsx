@@ -37,13 +37,18 @@ const Experience: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
+<<<<<<< HEAD
         staggerChildren: 0.3,
         delayChildren: 0.2
+=======
+        staggerChildren: 0.1
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
       }
     }
   };
 
   const listItemVariants = {
+<<<<<<< HEAD
     hidden: { 
       opacity: 0,
       y: 30,
@@ -58,6 +63,16 @@ const Experience: React.FC = () => {
         stiffness: 80,
         damping: 15,
         duration: 0.5
+=======
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
       }
     }
   };
@@ -114,6 +129,7 @@ const Experience: React.FC = () => {
             <motion.ul 
               className="responsibilities"
               variants={listVariants}
+<<<<<<< HEAD
               initial="hidden"
               animate="visible"
             >
@@ -123,11 +139,21 @@ const Experience: React.FC = () => {
                 "Developed alumni insights reports using Pandas and labor market tools, contributing to better outreach strategies and improved engagement.",
                 "Maintained and transformed academic records within Navigate360, ensuring clean, structured data for advising and course planning tools.",
                 "Redesigned website navigation with Gato CMS, improving content structure and accessibility, leading to higher engagement and easier resource discovery."
+=======
+            >
+              {[
+                "Building Custom Attributes API using Python and Google Cloud Platform (GCP) for seamless Navigate360 data integration, improving backend performance and user experience.",
+                "Analyzed intersession course enrollment using SQL and internal dashboards, finding 87% of students enrolled for degree acceleration, 5% for prerequisites, 3% retaking courses, and 5% withdrawing. Compiled insights into a summary report to support academic planning.",
+                "Extracted and analyzed alumni data using Lightcast and Pandas, contributing to a 15% increase in alumni engagement through automated reports on career trajectories and employment trends.",
+                "Managed and updated academic data within Navigate360, including course catalogs, student records, and advising information, performing backend data validation and transformation using GCP tools.",
+                "Revamped website navigation by optimizing information architecture using Gato CMS, enhancing website accessibility and user experience with HTML, CSS, resulting in a 12% increase in page views per session and enhanced findability of key resources."
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
               ].map((responsibility, index) => (
                 <motion.li 
                   key={index}
                   variants={listItemVariants}
                   whileHover={{ 
+<<<<<<< HEAD
                     scale: 1.02,
                     transition: { 
                       type: "spring",
@@ -142,6 +168,10 @@ const Experience: React.FC = () => {
                       stiffness: 300,
                       damping: 10
                     }
+=======
+                    x: 10,
+                    transition: { duration: 0.2 }
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
                   }}
                 >
                   {responsibility}

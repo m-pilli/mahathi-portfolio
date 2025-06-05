@@ -97,14 +97,18 @@
       list-style-type: none;
       padding: 0;
       margin: 0;
+<<<<<<< HEAD
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
+=======
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
 
       li {
         color: var(--text-secondary);
         font-size: 0.95rem;
         line-height: 1.6;
+<<<<<<< HEAD
         padding: 1.5rem;
         border-radius: 15px;
         background: var(--card-bg);
@@ -137,6 +141,24 @@
           &::before {
             transform: scaleY(1);
           }
+=======
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        background: rgba(var(--text-highlight-rgb), 0.03);
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(var(--text-highlight-rgb), 0.08);
+          padding-left: 1.2rem;
+        }
+
+        &::before {
+          content: '▹';
+          color: var(--text-highlight);
+          margin-right: 0.8rem;
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
         }
       }
     }
@@ -167,12 +189,18 @@
       }
 
       .responsibilities {
+<<<<<<< HEAD
         grid-template-columns: 1fr;
         gap: 1rem;
 
         li {
           padding: 1.2rem;
           font-size: 0.9rem;
+=======
+        li {
+          font-size: 0.9rem;
+          padding: 0.6rem;
+>>>>>>> bed13f5158477579bca1bde28b964a52fc8974f9
         }
       }
     }
