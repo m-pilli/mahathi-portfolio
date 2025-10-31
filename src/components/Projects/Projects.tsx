@@ -7,6 +7,12 @@ import './Projects.scss';
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: "AI-Powered Hybrid Search Engine",
+      description: "Full‑stack search engine combining semantic embeddings and TF‑IDF with FAISS for fast, accurate results (<200ms, ~92–95% relevance). React + TypeScript frontend, Flask API backend; MongoDB/Redis for data; Dockerized and deployed via Vercel.",
+      techStack: ["React", "TypeScript", "Python", "Flask", "FAISS", "Sentence Transformers", "MongoDB", "Redis", "Docker"],
+      githubLink: "https://github.com/m-pilli/AI-search-engine"
+    },
+    {
       title: "Website Evaluation using Opinion Mining",
       description: "Developed a Django-based website evaluation platform that uses sentiment analysis to rank websites based on user feedback, classifying comments as positive or negative. Integrated a database system to store feedback and dynamically count the number of positive and negative comments, enabling real-time performance insights for website ranking.",
       techStack: ["Python", "Django", "HTML", "Sentiment Analysis"],
